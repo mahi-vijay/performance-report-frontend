@@ -1,8 +1,14 @@
 .header-box {
-    padding: 20px;
-    margin: auto;
-    background-color: rgb(243, 241, 241);
-    color: #0e4d94;
-    border-bottom: 0.5px solid black;
+  padding: 20px;
+  margin: auto;
+  background-color: rgb(243, 241, 241);
+  color: #0e4d94;
+  border-bottom: 0.5px solid black;
+}
+
+@media (max-width: 768px) {
+  .header-box {
+    padding: 10px;
+    font-size: 16px;
   }
-  
+}

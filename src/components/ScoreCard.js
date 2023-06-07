@@ -1,17 +1,17 @@
+import { useEffect, useState } from "react";
+import React from "react";
 import "./styles/ScoreCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@coreui/coreui/dist/css/coreui.min.css";
-import React, { useEffect, useState } from "react";
+//import WeekCard from "./WeekCard";
 
 export default function ScoreCard() {
   const [scoreData, setScoreData] = useState(null);
 
   useEffect(() => {
-    // Fetch data from the API
-    fetch("https://api.npoint.io/9a77dd9e14cbab0c0bff")
+    fetch("https://api.npoint.io/37e9946d519668936e37")
       .then((response) => response.json())
       .then((data) => {
-        // Store the fetched data in the state
         setScoreData(data);
       })
       .catch((error) => console.log(error));
@@ -32,20 +32,21 @@ export default function ScoreCard() {
           <div className="scores">
             <div className="flexbox-container">
               <div className="scoreboxblue">
-                Assessment: {scoreData.data.assessment}
+                <h3>{scoreData.data.assessment}</h3> Assessment
               </div>
               <div className="scoreboxblue">
-                Mock Project: {scoreData.data.mockProject}
+                <h3>{scoreData.data.mockProject}</h3> Mock Project
               </div>
               <div className="scoreboxgreen">
-                Attendance & Participation:{" "}
-                {scoreData.data.attendanceParticipation}
+                <h3>{scoreData.data.attendanceParticipation}</h3>
+                Attendance & Participation
               </div>
               <div className="scoreboxgreen">
-                Time Management: {scoreData.data.timeManagement}
+                <h3>{scoreData.data.timeManagement}</h3> Time Management
               </div>
               <div className="scoreboxgreen">
-                Communication Skills: {scoreData.data.communicationSkill}
+                <h3>{scoreData.data.communicationSkill}</h3>
+                Communication Skills
               </div>
             </div>
           </div>

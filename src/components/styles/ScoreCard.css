@@ -25,20 +25,26 @@
 
 .scoreboxblue {
   margin: auto;
-  padding: auto;
+  padding: 10px;
   color: white;
   text-align: center;
   height: 100px;
-  width: 200px;
+  width: 18%;
   background-color: #0e4d94;
 }
 
 .scoreboxgreen {
   margin: auto;
-  padding: auto;
+  padding: 10px;
   color: white;
   text-align: center;
   height: 100px;
-  width: 200px;
+  width: 18%;
   background-color: #108955;
+}
+
+@media (max-width: 768px) {
+  .scorecard {
+    width: 100%;
+  }
 }
