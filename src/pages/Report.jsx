@@ -1,20 +1,13 @@
-
-//import ScoreCard from "../components/ScoreCard";
-import ScoresCard from "../components/ScoresCard";
-import WeeksCard from "../components/WeeksCard";
+import ScoreCard from "../components/ScoreCard";
 import Heading from "../components/Heading";
-//import WeekCard from "../components/WeekCard";
+import Weeks from "../components/Weeks";
 
 export default function Report() {
   return (
     <>
-    
       <Heading/>
-    {/* <ScoreCard/> */}
-    <ScoresCard/>
-
-    {/* <WeekCard/> */}
-    <WeeksCard/>
+      <ScoreCard/>
+      <Weeks/>
     </>
   )
 }

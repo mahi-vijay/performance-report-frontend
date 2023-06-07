@@ -1,0 +1,60 @@
+{
+    "data": {
+        "grade": "Always Target",
+        "weeks": [
+            {
+                "weekId": "1",
+                "assignment": 81.33333333333333,
+                "endingDate": "2023-03-25T18:30:00.000Z",
+                "startingDate": "2023-03-19T18:30:00.000Z",
+                "timeManagement": 3,
+                "mentorFeedbacks": [
+                    "Great progress!",
+                    "Good job!",
+                    "Excellent work!"
+                ],
+                "overallAssessment": 81.33333333333333,
+                "communicationSkill": 3.3333333333333335,
+                "attendanceParticipation": 3
+            },
+            {
+                "weekId": "2",
+                "assignment": 74,
+                "endingDate": "2023-04-01T18:30:00.000Z",
+                "startingDate": "2023-03-26T18:30:00.000Z",
+                "timeManagement": 3.3333333333333335,
+                "mentorFeedbacks": [
+                    "Keep working on it!",
+                    "Great progress!",
+                    "Good job!"
+                ],
+                "overallAssessment": 74,
+                "communicationSkill": 3.3333333333333335,
+                "attendanceParticipation": 2.6666666666666665
+            },
+            {
+                "weekId": "3",
+                "assignment": 81,
+                "endingDate": "2023-04-08T18:30:00.000Z",
+                "startingDate": "2023-04-02T18:30:00.000Z",
+                "timeManagement": 3.3333333333333335,
+                "mentorFeedbacks": [
+                    "Good job!",
+                    "Great progress!",
+                    "Excellent work!"
+                ],
+                "overallAssessment": 81,
+                "communicationSkill": 3.3333333333333335,
+                "attendanceParticipation": 3.6666666666666665
+            }
+        ],
+        "assessment": 0,
+        "mockProject": 0,
+        "averageScore": 0,
+        "timeManagement": 3.2222222222222228,
+        "communicationSkill": 3.3333333333333335,
+        "attendanceParticipation": 3.1111111111111107
+    },
+    "status": "success",
+    "message": "success"
+}

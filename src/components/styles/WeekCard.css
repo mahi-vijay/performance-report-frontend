@@ -1,0 +1,47 @@
+.dispweek {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.weekcard {
+  box-shadow: 0 0 2px 1px #c2c1c1;
+  padding: 1%;
+  margin: 2%;
+  width: 46%;
+  border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .weekcard {
+    width: 100%; /* Set the width to 100% on smaller screens */
+  }
+}
+
+
+.flexbox-container {
+  color: #0e4d94;
+  display: flex;
+  flex-direction: row;
+}
+
+.weekdate {
+  font-size: medium;
+  float: right;
+  text-align: right;
+  align-content: right;
+}
+
+.scorebox {
+  color: black;
+  font-size: small;
+  margin: 8px;
+  padding: 4px;
+  box-shadow: 0 0 2px 1px #c2c1c1;
+  height: 100px;
+  width: 200px;
+  text-align: center;
+}
+
+h6 {
+  color: #0e4d94;
+}
