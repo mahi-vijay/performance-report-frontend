@@ -1,17 +1,16 @@
-
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
-import {
-  Box,
-  Typography,
-  Divider,
-  Paper,
-} from "@material-ui/core";
+import { Box, Typography, Divider, Paper } from "@material-ui/core";
 import useStyles from "./style";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function WeekCard({ weekData }) {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   const classes = useStyles();
   const {
     weekId,
@@ -24,24 +23,22 @@ function WeekCard({ weekData }) {
     communicationSkill,
     attendanceParticipation,
   } = weekData;
-const convertAssignmentScore = (assignmentScore) => {
-assignmentScore=assignmentScore/2.5;
-return assignmentScore;
-}
+  const convertAssignmentScore = (assignmentScore) => {
+    assignmentScore = assignmentScore / 2.5;
+    return assignmentScore;
+  };
   const getColor = (score) => {
-    if (score > 4){
-      score= convertAssignmentScore(score);
+    if (score > 4) {
+      score = convertAssignmentScore(score);
     }
     // Determine the background color and border color based on the score
     switch (true) {
       case score < 2.5 && score > 0:
-        return { bgColor: "#F9DCDF", borderColor: "#E93820", }; // red
-      // case score < 62.5 && score > 4:
-      //   return { bgColor: "#F9DCDF", borderColor: "#E93820" }; // red
+        return { bgColor: "#F9DCDF", borderColor: "#E93820" }; // red
+
       case score < 3.25 && score >= 2.5:
         return { bgColor: "#F7E6B5", borderColor: "#E8B321" }; // yellow
-      // case score < 81.25 && score >= 62.5:
-      //   return { bgColor: "#F7E6B5", borderColor: "#E8B321" }; // yellow
+
       default:
         return { bgColor: "", borderColor: "" };
     }
@@ -52,7 +49,7 @@ return assignmentScore;
     { label: "Assignment", score: assignment },
     { label: "Attendance & Participation", score: attendanceParticipation },
     { label: "Time Management", score: timeManagement },
-    { label: "Communication Skills", score: communicationSkill},
+    { label: "Communication Skills", score: communicationSkill },
   ];
 
   return (
@@ -61,8 +58,7 @@ return assignmentScore;
         <Typography variant="h4" className={classes.weekname}>
           Week {weekId}
           <span className={classes.weekdate}>
-            {moment(startingDate).format("Do MMMM YYYY")} -{" "}
-            {moment(endingDate).format("Do MMMM YYYY")}
+            {moment(startingDate).format("Do MMMM YYYY")} - {moment(endingDate).format("Do MMMM YYYY")}
           </span>
         </Typography>
       </Box>
@@ -74,7 +70,11 @@ return assignmentScore;
             <Box
               key={index}
               className={`${classes.weekbox} ${classes.border}`}
-              style={{ backgroundColor: bgColor, borderColor: borderColor}}
+              style={{
+                backgroundColor: bgColor,
+                borderColor: borderColor,
+                width: isSmallScreen ? "100%" : "30%",
+              }}
             >
               <Typography variant="h5">{scoreBox.score}</Typography>
               <Typography variant="subtitle1" className={classes.subtitle}>
@@ -98,4 +98,3 @@ return assignmentScore;
 }
 
 export default WeekCard;
-
