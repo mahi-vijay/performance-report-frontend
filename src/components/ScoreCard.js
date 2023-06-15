@@ -1,57 +1,66 @@
-import { useEffect, useState } from "react";
+
 import React from "react";
-import "./styles/ScoreCard.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "@coreui/coreui/dist/css/coreui.min.css";
-//import WeekCard from "./WeekCard";
+import { Card, CardContent, Typography } from "@material-ui/core";
+import useStyles from "./style";
 
-export default function ScoreCard() {
-  const [scoreData, setScoreData] = useState(null);
+export default function ScoreCard({ scoreData }) {
+  const classes = useStyles();
 
-  useEffect(() => {
-    fetch("https://api.npoint.io/37e9946d519668936e37")
-      .then((response) => response.json())
-      .then((data) => {
-        setScoreData(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const scoreBoxes = [
+    { label: "Assessment", dataKey: "assessment", color: "Blue" },
+    { label: "Mock Project", dataKey: "mockProject", color: "Blue" },
+    { label: "Attendance & Participation", dataKey: "attendanceParticipation", color: "Green" },
+    { label: "Time Management", dataKey: "timeManagement", color: "Green" },
+    { label: "Communication Skills", dataKey: "communicationSkill", color: "Green" },
+  ];
 
   return (
     <>
       {scoreData && (
-        <div className="scorecard">
-          <div className="container">
-            <h4>
-              <b>{scoreData.data.averageScore}</b>
-              <span className="remark">{scoreData.data.grade}</span>
-            </h4>
-            <p>Total Score</p>
-          </div>
-          <hr />
-          <div className="scores">
-            <div className="flexbox-container">
-              <div className="scoreboxblue">
-                <h3>{scoreData.data.assessment}</h3> Assessment
+        <Card className={classes.scorecard}>
+          <CardContent>
+            <div className={classes.container}>
+              <div>
+                <Typography variant="h2">
+                  <span className={classes.averageScore}>
+                    {scoreData.data.averageScore}
+                  </span>{" "}
+                     <span className={classes.of4} >of 4</span>
+                  
+                </Typography>
+                
               </div>
-              <div className="scoreboxblue">
-                <h3>{scoreData.data.mockProject}</h3> Mock Project
-              </div>
-              <div className="scoreboxgreen">
-                <h3>{scoreData.data.attendanceParticipation}</h3>
-                Attendance & Participation
-              </div>
-              <div className="scoreboxgreen">
-                <h3>{scoreData.data.timeManagement}</h3> Time Management
-              </div>
-              <div className="scoreboxgreen">
-                <h3>{scoreData.data.communicationSkill}</h3>
-                Communication Skills
+              <div className={classes.box1}>
+                <div>
+                  <Typography variant="subtitle1">Total Score</Typography>
+                </div>
+                <div>
+                  <Typography variant="body" className={classes.remark}>
+                    {scoreData.data.grade}
+                  </Typography>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+
+            <hr />
+
+            <div className={classes.scores}>
+              {scoreBoxes.map((scoreBox, index) => (
+                <div
+                  key={index}
+                  className={`${classes.scoreBox} ${classes[`scorebox${scoreBox.color}`]}`}
+                >
+                  <Typography variant="h5">
+                    {scoreData.data[scoreBox.dataKey]}
+                  </Typography>
+                  <Typography variant="subtitle1">{scoreBox.label}</Typography>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       )}
     </>
   );
 }
+

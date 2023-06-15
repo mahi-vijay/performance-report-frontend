@@ -1,19 +1,63 @@
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Report from "./pages/Report";
-import Navbar from "./components/Navbar";
 
+import React, { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Heading from "./components/Heading";
+import ScoreCard from "./components/ScoreCard";
+import WeekCard from "./components/WeekCard";
+import ErrorPage from "./components/errorPage";
 
-function App() {
+const useStyles = makeStyles((theme) => ({
+  
+}));
+
+const API = "https://api.npoint.io/9d1dc8d2622aabcc4587";
+
+export default function App() {
+  const classes = useStyles();
+  const [scoreData, setScoreData] = useState(null);
+  const [weekData, setWeekData] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(API);
+        const data = await res.json();
+
+        if (res.ok) {
+          setScoreData(data);
+
+          if (data && data.data && data.data.weeks) {
+            setWeekData(data.data.weeks);
+          } else {
+            setWeekData([]);
+          }
+        } else {
+          setError("Failed to fetch data");
+        }
+      } catch (error) {
+        setError("An error occurred => " + error);
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (error) {
+    return <ErrorPage message={error} />;
+  }
+
   return (
-    <>
-      <Router>
-        <Navbar/>
-        <Routes>
-          <Route path="/" element={<Report/>}></Route>
-        </Routes>
-      </Router>
-    </>
+    <div className={classes.root}>
+      <Heading />
+      <ScoreCard scoreData={scoreData} />
+      <div className="dispweek">
+        {weekData.map((week) => (
+          <WeekCard key={week.weekId} weekData={week} />
+        ))}
+      </div>
+    </div>
   );
 }
 
-export default App;

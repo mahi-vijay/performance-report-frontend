@@ -1,11 +1,16 @@
-import "./styles/Heading.css";
+
 import React from "react";
-export default function Header() {
+import { Box, Typography } from "@material-ui/core";
+import useStyles from "./style";
+
+ function Heading() {
+  const classes = useStyles();
+
   return (
-    <>
-      <div class="header-box">
-        <h2>Performance Report</h2>
-      </div>
-    </>
+    <Box className={classes.headerBox}>
+      <Typography variant="h4" className={classes.boldText} >Performance Report</Typography>
+    </Box>
   );
 }
+
+export default Heading;
