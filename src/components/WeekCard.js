@@ -23,14 +23,12 @@ function WeekCard({ weekData }) {
     communicationSkill,
     attendanceParticipation,
   } = weekData;
+  //create util function
   const convertAssignmentScore = (assignmentScore) => {
     assignmentScore = assignmentScore / 2.5;
     return assignmentScore;
   };
   const getColor = (score) => {
-    if (score > 4) {
-      score = convertAssignmentScore(score);
-    }
     // Determine the background color and border color based on the score
     switch (true) {
       case score < 2.5 && score > 0:
@@ -86,7 +84,7 @@ function WeekCard({ weekData }) {
       </Box>
       <Divider />
       <Box className={classes.feedback}>
-        <Typography variant="h6">
+        <Typography variant="h6" className={classes.mentorFeedback}>
           <FontAwesomeIcon className={classes.feedbackIcon} icon={faCommentAlt} />
           <span> </span>
           Mentor's Feedback

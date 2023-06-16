@@ -11,7 +11,7 @@ export default function ScoreCard({ scoreData }) {
     { label: "Attendance & Participation", dataKey: "attendanceParticipation", color: "Green" },
     { label: "Time Management", dataKey: "timeManagement", color: "Green" },
     { label: "Communication Skills", dataKey: "communicationSkill", color: "Green" },
-  ];
+  ]; //move it to one file and import
 
   return (
     <>

@@ -21,11 +21,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "500",
   },
   scorecard: {
-    boxShadow: "0px 1px 8px #c2c1c1",
+    boxShadow: "0px 1px 3px #c2c1c1",
+    border: "2px solid #D9DAE4",
     margin: "2%",
-    borderRadius: "15px",
+    borderRadius: "16px",
     width: "96%",
-    height: "34vh",
+    height: "31vh",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
     },
@@ -37,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
   box1: {
     display: "flex",
     justifyContent: "space-between",
-    //paddingBottom:"10px",
   },
   averageScore: {
     fontSize: "5vh",
@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
   remark: {
-    //fontSize: "17px",
     padding: "1.7%",
     fontSize: "3vh",
     float: "right",
@@ -85,16 +84,14 @@ const useStyles = makeStyles((theme) => ({
   weekbox: {
     color: "black",
     fontWeight: "100",
-    margin: "1vh 0.5vh", // Adjusted the top and bottom margin values
+    margin: "1vh 0.5vh",
     padding: "3%",
     border: "1px solid #D9DAE4",
     height: "14vh",
-    width: "40%", // Adjusted width to fit 5 boxes in one line
+    width: "40%",
     textAlign: "center",
-    // boxSizing: "border-box", // Added box-sizing property
-
     [theme.breakpoints.down("sm")]: {
-      width: "100%", // Adjusted width for small screens
+      width: "100%",
     },
   },
   weekcard: {
@@ -122,59 +119,17 @@ const useStyles = makeStyles((theme) => ({
 
   flexboxContainer: {
     display: "flex",
-    flexDirection: "inline",
+    flexDirection: "row",
     // flexWrap: "wrap",
     justifyContent: "space-between",
     flexDirection: "row",
   },
 
-  // weekbox: {
-  //   color: "black",
-  //   // fontSize: "small",
-  //   fontWeight: "100",
-  //   margin: "1vh",
-  //   padding: "3%",
-  //   border: "1px solid #D9DAE4",
-  //   height: "14vh",
-  //   // width: "calc(19% - 4px)",
-  //   width: "200%",
-  //   textAlign: "center",
-
-  //   [theme.breakpoints.down("sm")]: {
-  //     width: "30%",
-  //   },
-  // },
-  // weekcard: {
-  //   color: "#0D4896",
-  //   justifyContent: "center",
-  //   display: "inline-block",
-  //   // boxShadow: "0 1px 5px 1px #c2c1c1",
-  //   border: "1px solid #D9DAE4",
-  //   padding: "1%",
-  //   marginTop: "0%",
-  //   marginBottom: "2%",
-  //   marginLeft: "2%",
-  //   width: "calc(47% - 0%)",
-  //   borderRadius: "15px",
-
-  //   [theme.breakpoints.down("sm")]: {
-  //     width: "100%",
-  //     marginInline: "0%",
-  //   },
-  // },
   weekname: {
     fontSize: "3.5vh",
     color: "#0D4896",
   },
-  // weekdate: {
-  //   fontSize: "medium",
-  //   padding: "1%",
-  //   float: "right",
-  //   textAlign: "right",
-  // },
-  h6: {
-    color: "#0D4897",
-  },
+
   weekdate: {
     fontSize: "medium",
     padding: "1%",
@@ -187,16 +142,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  // flexboxContainer: {
-  //   display: "flex",
-  //   flexWrap: "rap",
-  //   justifyContent: "space-between",
-  //   flexDirection: "row",
-  // },
-
   subtitle: {
     fontSize: "1.5vh",
     justifyContent: "center",
+  },
+  mentorFeedback: {
+    color: "#0D4897",
+    fontSize: "2vh",
   },
   feedback: {
     marginTop: theme.spacing(2),

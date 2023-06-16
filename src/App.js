@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Heading from "./components/Heading";
@@ -6,11 +5,9 @@ import ScoreCard from "./components/ScoreCard";
 import WeekCard from "./components/WeekCard";
 import ErrorPage from "./components/errorPage";
 
-const useStyles = makeStyles((theme) => ({
-  
-}));
+const useStyles = makeStyles((theme) => ({}));
 
-const API = "https://api.npoint.io/9d1dc8d2622aabcc4587";
+const API = "http://localhost:3001/reports/harsh@quantiphi.com";
 
 export default function App() {
   const classes = useStyles();
@@ -60,4 +57,3 @@ export default function App() {
     </div>
   );
 }
-
