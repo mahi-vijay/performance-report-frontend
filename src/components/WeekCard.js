@@ -23,13 +23,16 @@ function WeekCard({ weekData }) {
     communicationSkill,
     attendanceParticipation,
   } = weekData;
-  //create util function
-  const convertAssignmentScore = (assignmentScore) => {
-    assignmentScore = assignmentScore / 2.5;
-    return assignmentScore;
-  };
-  const getColor = (score) => {
-    // Determine the background color and border color based on the score
+
+  // Determine the background color and border color based on the score
+  const getColor = (label, score) => {
+    if (label === "Overall Assessment") {
+      score = score / 25;
+    }
+    if (label === "Assignment") {
+      score = score / 2.5;
+    }
+
     switch (true) {
       case score < 2.5 && score > 0:
         return { bgColor: "#F9DCDF", borderColor: "#E93820" }; // red
@@ -63,7 +66,7 @@ function WeekCard({ weekData }) {
       <Divider />
       <Box className={classes.flexboxContainer}>
         {scoreBoxes.map((scoreBox, index) => {
-          const { bgColor, borderColor } = getColor(scoreBox.score);
+          const { bgColor, borderColor } = getColor(scoreBox.label, scoreBox.score);
           return (
             <Box
               key={index}

@@ -20,14 +20,18 @@ export default function ScoreCard({ scoreData }) {
           <CardContent>
             <div className={classes.container}>
               <div>
-                <Typography>
-                  <span className={classes.averageScore}>{scoreData.data.averageScore}</span>
-                  <span className={classes.of4}>of 4</span>
+                <Typography variant="h2" className={classes.averageScore}>
+                  {scoreData.data.averageScore}
+
+                  <Typography variant="span" className={classes.of4}>
+                    {" of 4"}
+                  </Typography>
                   <Typography variant="body" className={classes.remark}>
                     {scoreData.data.grade}
                   </Typography>
                 </Typography>
               </div>
+
               <div className={classes.box1}>
                 <div>
                   <Typography variant="subtitle1">Total Score</Typography>
